@@ -1,14 +1,11 @@
 # Editor de guardia (30X × JEV)
 
 An "on-call editor" that receives already-generated 30X content pieces (LinkedIn posts, reel scripts,
-newsletters, event copy) and decides **APROBAR / DESCARTAR (with reason codes) / REVISAR (human)**,
+newsletters, event copy), and decides to rate/classify them **APROBAR / DESCARTAR (with reason codes) / REVISAR (human)**,
 using **JEV** (TypeSafe's System One model) in **one call per piece**.
 
 > **Guiding principle:** everything computable lives in code; JEV only makes atomic judgments.
 > Final decisions and thresholds live in code and YAML, never inside the model.
-
-New to JEV? Read **[APRENDE_JEV.md](APRENDE_JEV.md)** first. It explains the model, the primitives and
-how this project uses them, step by step.
 
 ---
 
@@ -99,7 +96,7 @@ Pieza ─► CAPA 0 prechequeos.py (code: length, hashtags, links, prices, dates
 
 In replay mode, a piece that isn't in the cache returns **409** with instructions.
 
-## Golden set
+## Golden set for the showcase
 
 236 synthetic pieces (seed 30): 88 good (37%), 92 with **one** planted defect (39%) and 56 deliberately
 ambiguous (24%). Splits: dev 135 / test 101, stratified by defect. The defect matrix covers every layer-1 rule,
@@ -114,10 +111,7 @@ has something to catch.
 
 1. **`state.catalogo` includes every program name** (compact `{programa, linea}`), with full details only for the
    detected programs. Without the full list of names, JEV can't answer `oferta_inexistente`.
-2. **Catalog changes found on 30x.com (2026-10-18):** the youth program is now "IA para Jóvenes" (not "Next")
-   and stays excluded. Medellín has no listed edition. CDMX shows two different dates (5-7 Oct and 24-26 Nov),
-   so both are accepted with `verificada: false` until 30X confirms.
-3. **`P0_PROGRAMA` effect is `marcar`:** it is sent to JEV as context and the piece goes to REVISAR, unless
+2. **`P0_PROGRAMA` effect is `marcar`:** it is sent to JEV as context and the piece goes to REVISAR, unless
    JEV discards it first (for example via `oferta_inexistente`).
 4. **The threshold sweep applies the same thresholds to every channel policy** (simpler grid). It writes
    `umbrales_propuestos.yaml` and never edits `policy.yaml`: a human applies the result.
@@ -132,4 +126,4 @@ make datos       # regenerate the golden set (deterministic)
 ```
 
 Code conventions: Python 3.10+, Spanish identifiers and docstrings, question texts only in `reglas.yaml`,
-numbers only in `policy.yaml`, pure decision logic. Never commit `.env`.
+numbers only in `policy.yaml`, pure decision logic.
