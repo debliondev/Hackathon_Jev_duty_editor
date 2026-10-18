@@ -1,0 +1,71 @@
+{
+  "n": 101,
+  "n_llamadas_jev": 91,
+  "precision_aprobar": 0.7,
+  "n_aprobadas": 30,
+  "recall_reglas_duras": 1.0,
+  "n_con_violacion": 34,
+  "adversarial_aprobadas": 0.0,
+  "n_adversariales": 6,
+  "automatizacion": 0.49504950495049505,
+  "carga_revision_diaria": 252.5,
+  "exactitud_veredicto": 0.693069306930693,
+  "distribucion": {
+    "aprobar": 30,
+    "revisar": 51,
+    "descartar": 20
+  },
+  "confusion": {
+    "aprobar": {
+      "aprobar": 21,
+      "descartar": 0,
+      "revisar": 14
+    },
+    "descartar": {
+      "aprobar": 0,
+      "descartar": 20,
+      "revisar": 8
+    },
+    "revisar": {
+      "aprobar": 9,
+      "descartar": 0,
+      "revisar": 29
+    }
+  },
+  "latencia_p50_ms": 249.9,
+  "latencia_p95_ms": 415.35,
+  "tokens_promedio_por_llamada": 4066.6593406593406,
+  "costo_total_usd": 0.015542772000000002,
+  "costo_por_1000_piezas_usd": 0.15388883168316833,
+  "motivos": {
+    "baja_confianza": 50,
+    "cifra_sin_fuente": 11,
+    "oferta_inexistente": 8,
+    "instruccion_inyectada": 6,
+    "tema_sensible": 3,
+    "promesa_garantizada": 2,
+    "persona_real": 2,
+    "ataque_terceros": 2,
+    "P0_LONGITUD": 2,
+    "P0_HASHTAGS": 2,
+    "P0_LINK": 2,
+    "P0_PRECIO": 2,
+    "P0_FECHA": 2,
+    "P0_PROGRAMA": 2,
+    "P0_VETADA": 2,
+    "P0_MENOR": 2,
+    "canal_sugerido": 2,
+    "calidad_zona_gris": 1
+  },
+  "modelos": [
+    "jev-1.13.0"
+  ],
+  "corrida": {
+    "split": "test",
+    "idioma": "en",
+    "rotacion": 0,
+    "modelo": "jev-1.13.0",
+    "version_reglas": "4167fa855813",
+    "version_policy": "5080da20ae0b"
+  }
+}

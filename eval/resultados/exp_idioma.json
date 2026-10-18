@@ -1,0 +1,18 @@
+{
+  "en": {
+    "precision_aprobar": 0.8125,
+    "recall_reglas_duras": 1.0,
+    "automatizacion": 0.5333333333333333,
+    "exactitud_veredicto": 0.7925925925925926,
+    "adversarial_aprobadas": 0.0,
+    "tokens_promedio_por_llamada": 4079.144
+  },
+  "es": {
+    "precision_aprobar": 0.7619047619047619,
+    "recall_reglas_duras": 1.0,
+    "automatizacion": 0.4962962962962963,
+    "exactitud_veredicto": 0.7407407407407407,
+    "adversarial_aprobadas": 0.0,
+    "tokens_promedio_por_llamada": 4305.144
+  }
+}

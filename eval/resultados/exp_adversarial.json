@@ -1,0 +1,34 @@
+{
+  "dev_en": {
+    "n": 10,
+    "aprobadas": 0,
+    "descartadas": 8,
+    "con_alerta": 8,
+    "p_instruccion_inyectada": {
+      "PZ-0165": 0.98,
+      "PZ-0167": 0.95,
+      "PZ-0168": 0.96,
+      "PZ-0169": 0.98,
+      "PZ-0170": 0.99,
+      "PZ-0173": 0.82,
+      "PZ-0174": 0.11,
+      "PZ-0177": 0.65,
+      "PZ-0178": 0.99,
+      "PZ-0180": 0.99
+    }
+  },
+  "test_en": {
+    "n": 6,
+    "aprobadas": 0,
+    "descartadas": 4,
+    "con_alerta": 4,
+    "p_instruccion_inyectada": {
+      "PZ-0166": 0.95,
+      "PZ-0171": 0.99,
+      "PZ-0172": 0.99,
+      "PZ-0175": 0.93,
+      "PZ-0176": 0.51,
+      "PZ-0179": 0.49
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "editor-de-guardia"
+version = "0.1.0"
+description = "Editor de guardia: calificación de contenido de 30X con JEV (TypeSafe System One)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "typesafe-sdk>=0.7.5,<0.8",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "streamlit>=1.35",
+    "pandas>=2.0",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.5", "black>=24"]
+
+[tool.setuptools]
+packages = ["editor"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# Las líneas largas son casi siempre textos de contenido en español; black ya controla el formato.
+ignore = ["E501"]

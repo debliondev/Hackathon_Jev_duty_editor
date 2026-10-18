@@ -1,0 +1,52 @@
+{
+  "fuente": "https://30x.com/programas",
+  "verificado_el": "2026-10-18",
+  "notas": [
+    "Lista cerrada. Si un programa no está aquí, 30X no lo vende.",
+    "El sitio no publica precios: todos los precios son null. Cualquier precio en una pieza es un error (P0_PRECIO).",
+    "CDMX: el banner dice 24-26 nov y la sección Presenciales dice 5-7 oct. Se aceptan ambas hasta confirmarlo con 30X (verificada=false).",
+    "Medellín aparecía en el plan original pero no en el sitio al 2026-10-18: no se incluye.",
+    "El programa juvenil se llama ahora 'IA para Jóvenes' (antes 'Next'). Está excluido del prototipo: no se generan piezas para menores."
+  ],
+  "programas": [
+    {
+      "programa": "Inmersión Ejecutiva Presencial",
+      "alias": ["Inmersión Ejecutiva"],
+      "linea": "Inmersión",
+      "formato": "presencial",
+      "duracion": "3 días",
+      "precio": null,
+      "ediciones": [
+        {"ciudad": "Ciudad de México", "alias_ciudad": ["CDMX"], "fechas": [{"inicio": "2026-10-05", "fin": "2026-10-07"}, {"inicio": "2026-11-24", "fin": "2026-11-26"}], "verificada": false},
+        {"ciudad": "Caracas", "alias_ciudad": ["CCS"], "fechas": [{"inicio": "2026-10-21", "fin": "2026-10-23"}], "verificada": true},
+        {"ciudad": "Bogotá", "alias_ciudad": [], "fechas": [{"inicio": "2026-10-26", "fin": "2026-10-28"}], "verificada": true},
+        {"ciudad": "Miami", "alias_ciudad": [], "fechas": [{"inicio": "2026-11-19", "fin": "2026-11-21"}], "verificada": true}
+      ]
+    },
+    {"programa": "Multipliers", "alias": [], "linea": "Otros", "precio": null},
+    {"programa": "Fundraising Fundamentals", "alias": [], "linea": "Fundraising", "precio": null},
+    {"programa": "Raise your round", "alias": [], "linea": "Fundraising", "precio": null},
+    {"programa": "AI for Executives", "alias": [], "linea": "Inteligencia Artificial", "precio": null},
+    {"programa": "AI for Developers", "alias": [], "linea": "Inteligencia Artificial", "precio": null},
+    {"programa": "Operaciones con AI", "alias": ["Operaciones con IA"], "linea": "Inteligencia Artificial", "precio": null},
+    {"programa": "Second Brain", "alias": [], "linea": "Inteligencia Artificial", "precio": null},
+    {"programa": "Sales Machine", "alias": [], "linea": "Ventas", "precio": null},
+    {"programa": "AI Sales", "alias": [], "linea": "Ventas", "precio": null},
+    {"programa": "LinkedIn Sales", "alias": [], "linea": "Ventas", "precio": null},
+    {"programa": "Growth Rockstar", "alias": [], "linea": "Growth", "precio": null},
+    {"programa": "Advanced Strategy", "alias": [], "linea": "Growth", "precio": null},
+    {"programa": "Xtreme Growth", "alias": [], "linea": "Growth", "precio": null},
+    {"programa": "Instagram & Tiktok", "alias": ["Instagram y TikTok"], "linea": "Growth", "precio": null},
+    {"programa": "Product Rockstar", "alias": [], "linea": "Growth", "precio": null},
+    {"programa": "Planes Corporativos", "alias": [], "linea": "Empresas", "precio": null}
+  ],
+  "activos_gratuitos": [
+    {"nombre": "Clases Gratis", "plataforma": "Luma", "alias": ["clase gratis", "clases gratis en vivo"]},
+    {"nombre": "Diagnóstico 30X", "plataforma": "30x.com", "alias": ["Diagnóstico"]},
+    {"nombre": "Comunidad 30X", "plataforma": "Circle", "alias": ["comunidad"]},
+    {"nombre": "Hub de alumnos", "plataforma": "30x.com", "alias": []}
+  ],
+  "excluidos": [
+    {"programa": "IA para Jóvenes", "motivo": "Dirigido a menores (13-18 años). Fuera del alcance del prototipo."}
+  ]
+}

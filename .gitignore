@@ -1,0 +1,41 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Editor / agent / OS local files
+.vscode/
+.idea/
+.claude/settings.local.json
+*.swp
+*~
+.DS_Store
+*:Zone.Identifier
+
+# Build / coverage
+dist/
+build/
+.coverage
+htmlcov/
+.mypy_cache/
+
+#any env variant except the template
+.env.*
+!.env.example
+*.env
+.streamlit/secrets.toml
+
+# Local databases (decisions + human notes) and SQLite side files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+data/editor.db
+
+
+# Los resultados del eval sí se versionan (son evidencia), pero no la base local.

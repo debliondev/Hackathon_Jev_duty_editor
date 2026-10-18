@@ -1,0 +1,50 @@
+# policy.yaml — Umbrales y pesos. ÚNICO lugar donde viven los números de decisión.
+# Dueño: Tech / VP of AI (umbrales) + Head de Contenido (pesos de calidad).
+# Valores iniciales del plan: hay que calibrarlos con `python -m eval.barrido_umbrales` sobre el split dev.
+
+modelo: jev-1.13.0            # versión fija: los umbrales se calibran contra ella (nunca jev-latest)
+idioma_preguntas: en          # en | es  → qué versión de reglas.yaml se envía (ver ablación de idioma)
+precio_usd_por_millon: 0.042  # solo tokens de entrada
+concurrencia: 8               # llamadas simultáneas a JEV en lotes
+volumen_diario_supuesto: 500  # piezas/día, para estimar la carga de la cola de revisión
+
+politicas:
+  anuncio_pagado: { noul_accion: 0.60, noul_revision: 0.25, calidad_min: 0.75, calidad_descarte: 0.40, conf_min: 0.70 }
+  post_organico:  { noul_accion: 0.70, noul_revision: 0.30, calidad_min: 0.65, calidad_descarte: 0.35, conf_min: 0.60 }
+  newsletter:     { noul_accion: 0.70, noul_revision: 0.35, calidad_min: 0.60, calidad_descarte: 0.35, conf_min: 0.55 }
+
+canal_a_politica:
+  linkedin: post_organico
+  instagram_tiktok: post_organico
+  newsletter: newsletter
+  anuncio_evento: anuncio_pagado
+
+# Si JEV sugiere otro canal con al menos esta confianza, la pieza va a revisión.
+canal_conf_min: 0.60
+
+pesos_calidad: { gancho: 0.30, claridad: 0.20, valor_accionable: 0.30, voz_30x: 0.15, cta: 0.05 }
+
+precedencia: [descartar, revisar, aprobar]
+
+# Límites por canal para la capa 0 (prechequeos en código).
+canales:
+  linkedin:         { formato: post,        largo_min: 300, largo_max: 3000, hashtags_max: 5,  emojis_max: 6 }
+  instagram_tiktok: { formato: guion_reel,  largo_min: 150, largo_max: 2200, hashtags_max: 10, emojis_max: 12 }
+  newsletter:       { formato: newsletter,  largo_min: 500, largo_max: 6000, hashtags_max: 2,  emojis_max: 4 }
+  anuncio_evento:   { formato: copy_evento, largo_min: 150, largo_max: 900,  hashtags_max: 3,  emojis_max: 4 }
+
+# Metas del eval (§6.1 del plan).
+metas:
+  precision_aprobar: 0.95
+  recall_reglas_duras: 0.98
+  adversarial_aprobadas: 0.0
+
+# Extremos del selector "estricto ↔ permisivo" de la UI. Se interpola linealmente entre ambos.
+slider:
+  estricto:  { noul_accion: 0.50, noul_revision: 0.15, calidad_min: 0.80, calidad_descarte: 0.45, conf_min: 0.75 }
+  permisivo: { noul_accion: 0.85, noul_revision: 0.45, calidad_min: 0.55, calidad_descarte: 0.30, conf_min: 0.40 }
+
+# Alertas operativas (§10 del plan).
+alertas:
+  cola_max_diaria: 150
+  cambio_semanal_descarte_max: 0.15
